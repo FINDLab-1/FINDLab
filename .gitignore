@@ -1,0 +1,5 @@
+/ICON.png
+.DS_Store
+.env
+.env.*
+__pycache__/

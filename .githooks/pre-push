@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+"""Check outgoing history and the account used to publish the review site."""
+import json
+import os
+import subprocess
+import sys
+import urllib.parse
+import urllib.request
+
+EXPECTED_NAME = "FINDLab-1"
+EXPECTED_EMAIL = "327827369+FINDLab-1@users.noreply.github.com"
+EXPECTED_HISTORY = [EXPECTED_NAME, EXPECTED_EMAIL, EXPECTED_NAME, EXPECTED_EMAIL]
+
+url = urllib.parse.urlsplit(sys.argv[2])
+if url.netloc not in ("github.com", "FINDLab-1@github.com") or (url.scheme, url.hostname, url.path.rstrip("/")) != (
+    "https", "github.com", "/FINDLab-1/FINDLab.git"
+):
+    sys.exit("Push blocked: use the review repository's HTTPS remote.")
+
+outgoing = []
+for line in sys.stdin:
+    fields = line.split()
+    if len(fields) != 4:
+        sys.exit("Push blocked: unexpected ref update.")
+    if fields[1] == "0" * 40:
+        sys.exit("Push blocked: this safeguard does not permit remote ref deletions.")
+    outgoing.append(fields[1])
+
+for revision in outgoing:
+    history = subprocess.check_output(
+        ["git", "log", "--format=%an%x00%ae%x00%cn%x00%ce", revision], text=True
+    )
+    if any(line.split("\0") != EXPECTED_HISTORY for line in history.splitlines()):
+        sys.exit("Push blocked: outgoing history contains identities other than the review account.")
+
+if not outgoing:
+    sys.exit("Push blocked: this safeguard does not permit remote ref deletions.")
+
+environment = dict(os.environ, GIT_TERMINAL_PROMPT="0", GIT_ASKPASS="/bin/false")
+request = "protocol=https\nhost=github.com\npath=FINDLab-1/FINDLab.git\nusername=FINDLab-1\n\n"
+try:
+    result = subprocess.run(
+        ["git", "credential", "fill"], input=request, text=True,
+        capture_output=True, env=environment, timeout=15, check=True,
+    )
+    credential = dict(line.split("=", 1) for line in result.stdout.splitlines() if "=" in line)
+    token = credential.get("password")
+    if not token:
+        raise ValueError("No credential")
+    api_request = urllib.request.Request(
+        "https://api.github.com/user",
+        headers={"Authorization": "Bearer " + token, "User-Agent": "review-site-identity-check"},
+    )
+    with urllib.request.urlopen(api_request, timeout=15) as response:
+        login = json.load(response).get("login")
+except Exception:
+    sys.exit("Push blocked: authenticate the review account with a Git HTTPS credential helper first.")
+
+if login != EXPECTED_NAME:
+    sys.exit("Push blocked: the authenticated GitHub account is not the review account.")

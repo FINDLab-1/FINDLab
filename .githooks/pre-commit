@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+"""Require the review account for both identities in a new commit."""
+import re
+import subprocess
+import sys
+
+EXPECTED = ("FINDLab-1", "327827369+FINDLab-1@users.noreply.github.com")
+
+for field in ("GIT_AUTHOR_IDENT", "GIT_COMMITTER_IDENT"):
+    value = subprocess.check_output(["git", "var", field], text=True).strip()
+    match = re.fullmatch(r"(.*) <([^<>]+)> \d+ [+-]\d{4}", value)
+    if not match or match.groups() != EXPECTED:
+        sys.exit("Commit blocked: configure both author and committer with the review account described in README.md.")
