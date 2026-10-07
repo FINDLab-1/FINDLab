@@ -7,7 +7,7 @@ Published at <https://findlab-1.github.io/FINDLab/>.
 ## Edit the page
 
 - Keep author names, affiliations, personal profiles, acknowledgments, and identifying logos withheld during review.
-- Edit the five page areas in `index.html`: title/resources, Abstract, recorded parameter comparison/diagnosis flow/overview image, Research Overview, and Using FIND-Lab.
+- Edit the five page areas in `index.html`: title/resources, Abstract, recorded navigation overview/diagnosis flow/overview image, Research Overview, and Using FIND-Lab.
 - Review images and videos for identifying text, faces, logos, paths, and metadata before adding them to `static/`.
 - Enable a resource button only after checking its destination, account identity, repository history, and downloadable file metadata. Use `target="_blank" rel="noopener noreferrer"` for external links.
 - Adjust the page styles in `static/css/index.css`.
@@ -23,7 +23,7 @@ Set embedded media paths in **`static/js/media-config.js`** only. Use a project-
 
 | Key | Intended resource | Current value |
 | --- | --- | --- |
-| `heroMedia` | Recorded ANYmal-C / DWA setting comparison, 12-second GIF loop | `./static/media/hero.gif` |
+| `heroMedia` | Recorded navigation across 15 passage configurations, 15-second GIF loop | `./static/media/hero.gif?v=476c3581` |
 | `overviewImage` | Existing overview image matching the current Fig. 1 | `null` |
 | `mainVideo` | User-selected research overview, 2:59.5 | `./static/media/research-overview.mp4` |
 | `tutorialVideo` | Edited GUI walkthrough with saved diagnostic records, 2:10 | `./static/media/tool-walkthrough.mp4` |
@@ -32,7 +32,7 @@ The configuration comments describe the intended content and the manuscript's in
 
 The research overview is an unchanged copy of the supplied `FINDLab_graphs_synced.mp4`. Its edited geometry transitions illustrate configurations; they should not be described as online adaptation or the paper's controlled factor sweeps. Videos support MP4/WebM; the hero also supports GIF/PNG/JPEG/WebP. The overview image supports GIF/PNG/JPEG/WebP. Text alternatives are maintained in `static/js/index.js`.
 
-The hero is an unchanged copy of the user-selected `findlab_hero.gif`: an illustrative ANYmal-C / DWA comparison under original and proposed settings, rather than the initially planned MPPI comparison. The caption and text alternative describe the supplied footage. The tutorial is an unchanged copy of `findlab_tool_walkthrough.mp4`. It uses edited GUI captures and saved results; it does not show a new evaluation, provider request, or parameter application being run. No new media was generated for the page.
+The hero is an unchanged copy of the user-selected `findlab_parallel_hero.gif`. It zooms from a Nova Carter close-up to 15 static configurations across five environment families, with 9 Nova Carter and 6 ANYmal-C robots. Separately recorded episodes are replayed together at their original timestamps, and terminal poses are held. This recorded-state visualization is not a new live parallel evaluation, an online-adaptation experiment, or an all-success demonstration. The caption and text alternative describe the supplied footage. The tutorial is an unchanged copy of `findlab_tool_walkthrough.mp4`. It uses edited GUI captures and saved results; it does not show a new evaluation, provider request, or parameter application being run. No new media was generated for the page.
 
 The hero and both video areas reserve a 16:9 ratio; the overview image reserves 2:1. Empty areas contain no player or broken image. Missing or invalid assets leave the area blank. The supplied GIF repeats using its embedded loop setting. An MP4/WebM hero uses muted inline looping playback with a pause button, and reduced-motion preferences suppress its autoplay. All assets are served from the same site, with no external video embeds, fonts, or analytics.
 

@@ -20,7 +20,7 @@
 
   const slots = {
     heroMedia: {
-      label: "Recorded ANYmal-C DWA runs in S-Bend at 10 degrees under original, aggregate-input, and added-diagnostic-input settings, with each run's speed and clearance traces.",
+      label: "Recorded Nova Carter and ANYmal-C runs replayed together in 15 static configurations across Straight, Single-Bend, S-Bend, Recovery Pocket, and U-Shape environments. The camera zooms from a single run to the full grid.",
     },
     overviewImage: {
       label: "FIND-Lab overview: controlled passage environments, robot platforms and navigation methods, outcomes, termination locations, behavioral time series, and parameter proposals for re-evaluation.",
