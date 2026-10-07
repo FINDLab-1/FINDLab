@@ -15,7 +15,7 @@ Published at <https://findlab-1.github.io/FINDLab/>.
 
 ## Header resources and media paths
 
-The header shows **Paper**, **Code**, and **Video** as disabled light-gray blocks, each marked **Coming soon!**. Their destinations are intentionally unset in `index.html`. Embedded media does not enable these header resources.
+The header shows **Paper**, **Code**, and **Video** as disabled light-gray pill buttons in the original compact style, with **Coming soon!** below each button. Their destinations are intentionally unset in `index.html`. Embedded media does not enable these header resources.
 
 Set embedded media paths in **`static/js/media-config.js`** only. Use a project-relative path inside `./static/` after reviewing the actual asset, not just its filename. Keep unavailable or unverified assets `null`. No media is generated or extracted by the page.
 
