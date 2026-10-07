@@ -116,6 +116,7 @@ button:focus-visible {
 }
 
 .hero-comparison {
+  margin-top: 56px;
   text-align: center;
 }
 
@@ -168,17 +169,13 @@ button:focus-visible {
   cursor: pointer;
 }
 
-.research-summary {
-  margin-top: 68px;
-}
-
 .diagnosis-flow {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 6px 10px;
-  margin: 0 auto 32px;
+  margin: 48px auto 0;
   color: var(--ink);
   font-size: 14px;
   font-weight: 600;
@@ -271,7 +268,7 @@ button:focus-visible {
     font-size: 16px;
   }
 
-  .research-summary,
+  .hero-comparison,
   .video-section {
     margin-top: 52px;
   }
@@ -279,7 +276,7 @@ button:focus-visible {
   .diagnosis-flow {
     display: block;
     max-width: 310px;
-    margin-bottom: 28px;
+    margin-top: 32px;
     font-size: 14px;
   }
 

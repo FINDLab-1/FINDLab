@@ -7,7 +7,7 @@ Published at <https://findlab-1.github.io/FINDLab/>.
 ## Edit the page
 
 - Keep author names, affiliations, personal profiles, acknowledgments, and identifying logos withheld during review.
-- Edit the five page areas in `index.html`: title/resources, recorded parameter comparison, research description/overview image, Research Overview, and Using FIND-Lab.
+- Edit the five page areas in `index.html`: title/resources, Abstract, recorded parameter comparison/diagnosis flow/overview image, Research Overview, and Using FIND-Lab.
 - Review images and videos for identifying text, faces, logos, paths, and metadata before adding them to `static/`.
 - Enable a resource button only after checking its destination, account identity, repository history, and downloadable file metadata. Use `target="_blank" rel="noopener noreferrer"` for external links.
 - Adjust the page styles in `static/css/index.css`.
@@ -16,6 +16,8 @@ Published at <https://findlab-1.github.io/FINDLab/>.
 ## Header resources and media paths
 
 The header shows **Paper**, **Code**, and **Video** as disabled light-gray pill buttons in the original compact style. Their destinations are intentionally unset in `index.html`. Embedded media does not enable these header resources.
+
+The manuscript's Abstract appears between the header and the GIF, with paragraph breaks for readability and its self-referential project-page URL omitted. The previous introduction below the GIF is removed to avoid repeating the abstract; the diagnosis flow and overview image slot follow the GIF.
 
 Set embedded media paths in **`static/js/media-config.js`** only. Use a project-relative path inside `./static/` after reviewing the actual asset, not just its filename. Keep unavailable or unverified assets `null`. No media is generated or extracted by the page.
 
