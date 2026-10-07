@@ -88,13 +88,6 @@ strong {
   margin-top: 24px;
 }
 
-.resource-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-
 .resource-placeholder {
   display: inline-flex;
   align-items: center;
@@ -114,13 +107,6 @@ strong {
   cursor: default;
   opacity: 1;
   -webkit-text-fill-color: currentColor;
-}
-
-.resource-status {
-  color: #686868;
-  font-size: 12px;
-  line-height: 1.4;
-  white-space: nowrap;
 }
 
 a:focus-visible,
