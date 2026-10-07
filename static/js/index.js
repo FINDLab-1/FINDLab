@@ -18,20 +18,6 @@
     }
   }
 
-  function setResource(key, href) {
-    const link = document.querySelector(`[data-resource="${key}"]`);
-    if (!link) return;
-    if (href) {
-      link.href = href;
-      link.removeAttribute("aria-disabled");
-      link.removeAttribute("tabindex");
-    } else {
-      link.removeAttribute("href");
-      link.setAttribute("aria-disabled", "true");
-      link.tabIndex = -1;
-    }
-  }
-
   const slots = {
     heroMedia: {
       label: "Recorded ANYmal-C DWA runs in S-Bend at 10 degrees under original, aggregate-input, and added-diagnostic-input settings, with each run's speed and clearance traces.",
@@ -39,8 +25,8 @@
     overviewImage: {
       label: "FIND-Lab overview: controlled passage environments, robot platforms and navigation methods, outcomes, termination locations, behavioral time series, and parameter proposals for re-evaluation.",
     },
-    mainVideo: { label: "Research Overview", section: "#research-overview" },
-    tutorialVideo: { label: "Using FIND-Lab", section: "#using-find-lab" },
+    mainVideo: { label: "Research Overview" },
+    tutorialVideo: { label: "Using FIND-Lab" },
   };
 
   Object.entries(slots).forEach(([key, slot]) => {
@@ -60,7 +46,6 @@
       frame.dataset.state = "ready";
       frame.removeAttribute("role");
       frame.removeAttribute("aria-label");
-      if (slot.section) setResource(key, slot.section);
     }
 
     function clear() {
@@ -68,7 +53,6 @@
       delete frame.dataset.state;
       frame.setAttribute("role", "img");
       frame.setAttribute("aria-label", emptyLabel);
-      setResource(key, null);
       if (isHero) loopToggle.hidden = true;
     }
 
@@ -121,16 +105,4 @@
     video.addEventListener("error", clear);
     video.src = url.href;
   });
-
-  const paper = assetURL(media.paper);
-  if (paper) {
-    // A stale PDF path leaves its link disabled instead of sending readers to 404.
-    fetch(paper.href, { method: "HEAD", credentials: "omit", referrerPolicy: "no-referrer" })
-      .then((response) => {
-        if (response.ok && response.headers.get("content-type")?.includes("application/pdf")) {
-          setResource("paper", paper.href);
-        }
-      })
-      .catch(() => setResource("paper", null));
-  }
 })();

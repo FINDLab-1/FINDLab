@@ -1,14 +1,13 @@
 /*
- * The only place to edit document and media paths.
+ * The only place to edit embedded media paths.
+ * Header resources are disabled placeholders in index.html until release URLs
+ * are ready. Loading embedded media does not activate those resources.
  * Use a relative URL inside ./static/ after checking the actual content and
  * metadata for anonymity. Leave unavailable or unverified assets as null.
  * Videos are local MP4/WebM files; heroMedia also accepts GIF/PNG/JPEG/WebP.
  * No external players, tracking scripts, or media-generation steps are used.
  */
 window.FIND_LAB_MEDIA = Object.freeze({
-  // Existing anonymous manuscript, copied without modification.
-  paper: "./static/papers/find-lab.pdf",
-
   // User-selected findlab_hero.gif, copied unchanged: a 12-second infinite loop
   // of recorded ANYmal-C / DWA / S-Bend 10-degree runs under F/A/L settings.
   // The original 0.55 m and aggregate-input 0.65 m envelopes end in collision;

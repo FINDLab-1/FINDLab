@@ -80,39 +80,41 @@ strong {
   font-size: 19px;
 }
 
-.publication-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.publication-resources {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  margin-top: 24px;
+  max-width: 414px;
+  margin: 24px auto 0;
 }
 
-.resource-link.button {
-  min-height: 44px;
-  height: auto;
-  padding: 9px 23px;
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
+.resource-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 14px;
+  background: #f1f1f1;
+  color: #686868;
+  font: inherit;
   line-height: 1.4;
-  text-decoration: none;
-}
-
-.resource-link.button[href]:hover {
-  border-color: #505050;
-  background: #505050;
-  color: #fff;
-}
-
-.resource-link.button[aria-disabled="true"] {
-  border-color: #e5e5e5;
-  background: #f6f6f6;
-  color: var(--muted-ink);
+  text-align: center;
   cursor: default;
-  pointer-events: none;
+  opacity: 1;
+  -webkit-text-fill-color: currentColor;
+}
+
+.resource-label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.resource-status {
+  font-size: 12px;
+  white-space: nowrap;
 }
 
 a:focus-visible,
@@ -263,12 +265,15 @@ button:focus-visible {
     font-size: 17px;
   }
 
-  .publication-links {
+  .publication-resources {
     gap: 8px;
   }
 
-  .resource-link.button {
-    padding-inline: 15px;
+  .resource-placeholder {
+    padding-inline: 8px;
+  }
+
+  .resource-label {
     font-size: 14px;
   }
 

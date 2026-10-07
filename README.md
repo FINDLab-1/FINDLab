@@ -13,13 +13,14 @@ Published at <https://findlab-1.github.io/FINDLab/>.
 - Adjust the page styles in `static/css/index.css`.
 - The search-engine indexing directive reduces discovery; it does not restrict access.
 
-## Resource and media paths
+## Header resources and media paths
 
-Set paths in **`static/js/media-config.js`** only. Use a project-relative path inside `./static/` after reviewing the actual asset, not just its filename. Keep unavailable or unverified assets `null`. No media is generated or extracted by the page.
+The header shows **Paper**, **Code**, and **Video** as disabled light-gray blocks, each marked **Coming soon!**. Their destinations are intentionally unset in `index.html`. Embedded media does not enable these header resources.
+
+Set embedded media paths in **`static/js/media-config.js`** only. Use a project-relative path inside `./static/` after reviewing the actual asset, not just its filename. Keep unavailable or unverified assets `null`. No media is generated or extracted by the page.
 
 | Key | Intended resource | Current value |
 | --- | --- | --- |
-| `paper` | Existing anonymous manuscript | `./static/papers/find-lab.pdf` |
 | `heroMedia` | Recorded ANYmal-C / DWA setting comparison, 12-second GIF loop | `./static/media/hero.gif` |
 | `overviewImage` | Existing overview image matching the current Fig. 1 | `null` |
 | `mainVideo` | User-selected research overview, 2:59.5 | `./static/media/research-overview.mp4` |
@@ -31,7 +32,7 @@ The research overview is an unchanged copy of the supplied `FINDLab_graphs_synce
 
 The hero is an unchanged copy of the user-selected `findlab_hero.gif`: an illustrative ANYmal-C / DWA comparison under original and proposed settings, rather than the initially planned MPPI comparison. The caption and text alternative describe the supplied footage. The tutorial is an unchanged copy of `findlab_tool_walkthrough.mp4`. It uses edited GUI captures and saved results; it does not show a new evaluation, provider request, or parameter application being run. No new media was generated for the page.
 
-The hero and both video areas reserve a 16:9 ratio; the overview image reserves 2:1. Empty areas contain no player or broken image. Video navigation links activate only after the corresponding file loads, and the Paper link activates only after its PDF responds successfully. Missing or invalid assets leave the area blank. The supplied GIF repeats using its embedded loop setting. An MP4/WebM hero uses muted inline looping playback with a pause button, and reduced-motion preferences suppress its autoplay. All assets are served from the same site, with no external video embeds, fonts, or analytics.
+The hero and both video areas reserve a 16:9 ratio; the overview image reserves 2:1. Empty areas contain no player or broken image. Missing or invalid assets leave the area blank. The supplied GIF repeats using its embedded loop setting. An MP4/WebM hero uses muted inline looping playback with a pause button, and reduced-motion preferences suppress its autoplay. All assets are served from the same site, with no external video embeds, fonts, or analytics.
 
 ## Configure Git before editing
 
