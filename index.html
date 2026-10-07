@@ -2,148 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="FINDLab anonymous project page for double-anonymous peer review.">
-  <meta name="keywords" content="FINDLab">
+  <meta name="description" content="FIND-Lab links controlled passage factors to navigation outcomes, termination locations, behavioral evidence, and parameter proposals for re-evaluation.">
+  <meta name="keywords" content="FIND-Lab, navigation diagnosis, constrained spaces, robotics benchmark">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="referrer" content="no-referrer">
-  <title>FINDLab</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <title>FIND-Lab: A Factor-Controlled Benchmark for Informed Navigation Diagnosis in Constrained Spaces</title>
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" type="image/png" href="./static/images/logo.png?v=2">
-
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/media-config.js"></script>
+  <script defer src="./static/js/index.js"></script>
 </head>
 <body>
+<main id="main-content">
+  <!-- 1. Title and resources. Resource URLs live only in media-config.js. -->
+  <header class="publication-header page-width">
+    <h1 class="title publication-title"><span class="project-name">FIND-Lab:</span> A Factor-Controlled Benchmark for Informed Navigation Diagnosis in Constrained Spaces</h1>
+    <p class="publication-authors">Anonymous Authors</p>
+    <nav class="publication-links" aria-label="Project resources">
+      <a class="button is-rounded resource-link" data-resource="paper" role="link" aria-disabled="true" tabindex="-1">Paper</a>
+      <a class="button is-rounded resource-link" data-resource="mainVideo" role="link" aria-disabled="true" tabindex="-1">Overview Video</a>
+      <a class="button is-rounded resource-link" data-resource="tutorialVideo" role="link" aria-disabled="true" tabindex="-1">Tool Tutorial</a>
+    </nav>
+  </header>
 
-<main>
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <!-- Keep author identities and affiliations withheld throughout peer review. -->
-          <h1 class="title is-1 publication-title">FINDLab</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Anonymous authors</span>
-          </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">Submitted for double-anonymous peer review</span>
-          </div>
+  <!-- 2. User-selected recorded example under original and proposed settings. -->
+  <section class="hero-comparison page-width" aria-label="Recorded parameter comparison">
+    <figure>
+      <div class="media-frame" data-media="heroMedia" role="img" aria-label="Recorded parameter comparison unavailable"></div>
+      <figcaption class="hero-caption">Original and proposed settings in an illustrative ANYmal-C example.</figcaption>
+    </figure>
+    <button class="loop-toggle" type="button" aria-controls="hero-video" hidden>Pause loop</button>
+  </section>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- Add only resources reviewed for anonymity, including their metadata and hosting accounts.
-              <a href="PROJECT_URL" target="_blank" rel="noopener noreferrer"
-                 class="external-link button is-normal is-rounded is-dark">Paper</a>
-              Keep author profiles and identity-bearing resources unlinked during peer review.
-              -->
-              <span class="link-block">
-                <button type="button" disabled title="Paper link coming soon"
-                        class="button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </button>
-              </span>
-              <span class="link-block">
-                <button type="button" disabled title="arXiv link coming soon"
-                        class="button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </button>
-              </span>
-              <span class="link-block">
-                <button type="button" disabled title="Video link coming soon"
-                        class="button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </button>
-              </span>
-              <span class="link-block">
-                <button type="button" disabled title="Code link coming soon"
-                        class="button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                </button>
-              </span>
-            </div>
-            <p class="is-size-7 has-text-grey">Project links coming soon.</p>
-          </div>
-        </div>
-      </div>
+  <!-- 3. Research description and the existing, paper-matched Fig. 1 image. -->
+  <section class="research-summary page-width" aria-label="Research summary">
+    <p class="diagnosis-flow">
+      <span>Controlled factors</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
+      <span>Outcomes</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
+      <span>Termination locations</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
+      <span>Behavioral evidence</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
+      <span>Parameter proposals and re-evaluation</span>
+    </p>
+    <div class="reading-width research-copy">
+      <p>
+        FIND-Lab varies interpretable factors across five constrained passage environments,
+        changing one factor at a time: passage width in <strong>Straight</strong>;
+        bend in <strong>Single-Bend</strong> and <strong>S-Bend</strong>, with passage width
+        fixed at 1.2&nbsp;m; initial heading in <strong>Recovery Pocket</strong>;
+        and angular spacing or curved radius in <strong>U-Shape</strong>.
+      </p>
+      <p>
+        Each run connects its outcome and termination location to time series of motion,
+        clearance, and route alignment before termination. An LLM assistant uses these
+        diagnostic records and navigation settings to propose parameter or reward changes
+        for re-evaluation. The records support investigation and testing; they do not
+        establish failure causes or guarantee improvement.
+      </p>
     </div>
-  </div>
-</section>
+    <figure class="overview-figure">
+      <div class="media-frame media-frame--overview" data-media="overviewImage" role="img" aria-label="Benchmark overview image unavailable"></div>
+    </figure>
+  </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace this placeholder with a project image or video in static/. -->
-      <div class="project-placeholder">
-        <p class="title is-4">Project overview</p>
-        <p>Visuals coming soon.</p>
-      </div>
-      <h2 class="subtitle has-text-centered">
-        FINDLab &mdash; project details coming soon.
-      </h2>
+  <!-- 4. Only a finished research overview belongs in this slot. -->
+  <section id="research-overview" class="video-section page-width" aria-labelledby="research-overview-title">
+    <div class="reading-width section-intro">
+      <h2 id="research-overview-title" class="title section-title">Research Overview</h2>
+      <p>
+        An overview of controlled factor comparisons, behavioral diagnosis, and parameter
+        proposals with re-evaluation, including the GUI and parallel evaluation.
+      </p>
     </div>
-  </div>
-</section>
+    <div class="media-frame" data-media="mainVideo" role="img" aria-label="Research overview video unavailable"></div>
+  </section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Add the FINDLab abstract here. -->
-          <p>
-            The FINDLab abstract will be available here soon.
-          </p>
-        </div>
-      </div>
+  <!-- 5. Edited tool walkthrough using saved diagnostic records. -->
+  <section id="using-find-lab" class="video-section page-width" aria-labelledby="using-find-lab-title">
+    <div class="reading-width section-intro">
+      <h2 id="using-find-lab-title" class="title section-title">Using FIND-Lab</h2>
+      <p>
+        An edited walkthrough of environment and task configuration, followed by
+        inspection of saved results. Explore termination locations and time-series
+        plots in <strong>Results</strong>, then prepare a question based on the recorded
+        evidence in <strong>LLM Assistance</strong>.
+      </p>
     </div>
-  </div>
-</section>
-
+    <div class="media-frame" data-media="tutorialVideo" role="img" aria-label="Tool tutorial video unavailable"></div>
+  </section>
 </main>
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license noopener noreferrer" target="_blank"
-                                                href="https://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Website template adapted from <a
-              target="_blank" rel="noopener noreferrer"
-              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
+<footer class="site-footer reading-width">
+  <p>
+    Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a>.
+    This website is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>.
+  </p>
+</footer>
 </body>
 </html>

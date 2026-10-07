@@ -1,17 +1,37 @@
-# FINDLab
+# FIND-Lab
 
-Anonymous FINDLab project page for double-anonymous peer review.
+Anonymous FIND-Lab project page for double-anonymous peer review. This is a static HTML/CSS page using the existing bundled Bulma stylesheet and plain JavaScript; it has no build step or package dependencies.
 
 Published at <https://findlab-1.github.io/FINDLab/>.
 
 ## Edit the page
 
 - Keep author names, affiliations, personal profiles, acknowledgments, and identifying logos withheld during review.
-- Add the project description and abstract in `index.html`.
+- Edit the five page areas in `index.html`: title/resources, recorded parameter comparison, research description/overview image, Research Overview, and Using FIND-Lab.
 - Review images and videos for identifying text, faces, logos, paths, and metadata before adding them to `static/`.
 - Enable a resource button only after checking its destination, account identity, repository history, and downloadable file metadata. Use `target="_blank" rel="noopener noreferrer"` for external links.
 - Adjust the page styles in `static/css/index.css`.
 - The search-engine indexing directive reduces discovery; it does not restrict access.
+
+## Resource and media paths
+
+Set paths in **`static/js/media-config.js`** only. Use a project-relative path inside `./static/` after reviewing the actual asset, not just its filename. Keep unavailable or unverified assets `null`. No media is generated or extracted by the page.
+
+| Key | Intended resource | Current value |
+| --- | --- | --- |
+| `paper` | Existing anonymous manuscript | `./static/papers/find-lab.pdf` |
+| `heroMedia` | Recorded ANYmal-C / DWA setting comparison, 12-second GIF loop | `./static/media/hero.gif` |
+| `overviewImage` | Existing overview image matching the current Fig. 1 | `null` |
+| `mainVideo` | User-selected research overview, 2:59.5 | `./static/media/research-overview.mp4` |
+| `tutorialVideo` | Edited GUI walkthrough with saved diagnostic records, 2:10 | `./static/media/tool-walkthrough.mp4` |
+
+The configuration comments describe the intended content and the manuscript's interpretation limits. The environment factors follow Table II; Fig. 7 contains individual re-evaluation episodes, distinct from the diagnostic input episode, and Table V reports descriptive pooled results only for its selected conditions.
+
+The research overview is an unchanged copy of the supplied `FINDLab_graphs_synced.mp4`. Its edited geometry transitions illustrate configurations; they should not be described as online adaptation or the paper's controlled factor sweeps. Videos support MP4/WebM; the hero also supports GIF/PNG/JPEG/WebP. The overview image supports GIF/PNG/JPEG/WebP. Text alternatives are maintained in `static/js/index.js`.
+
+The hero is an unchanged copy of the user-selected `findlab_hero.gif`: an illustrative ANYmal-C / DWA comparison under original and proposed settings, rather than the initially planned MPPI comparison. The caption and text alternative describe the supplied footage. The tutorial is an unchanged copy of `findlab_tool_walkthrough.mp4`. It uses edited GUI captures and saved results; it does not show a new evaluation, provider request, or parameter application being run. No new media was generated for the page.
+
+The hero and both video areas reserve a 16:9 ratio; the overview image reserves 2:1. Empty areas contain no player or broken image. Video navigation links activate only after the corresponding file loads, and the Paper link activates only after its PDF responds successfully. Missing or invalid assets leave the area blank. The supplied GIF repeats using its embedded loop setting. An MP4/WebM hero uses muted inline looping playback with a pause button, and reduced-motion preferences suppress its autoplay. All assets are served from the same site, with no external video embeds, fonts, or analytics.
 
 ## Configure Git before editing
 
@@ -29,13 +49,15 @@ The commit hook checks both author and committer identities. The push hook also 
 
 ## Preview locally
 
-Run this command in the repository root:
+Run this command in the repository root (Node.js is required for this preview command):
 
 ```sh
-python -m http.server 8000 --bind 127.0.0.1
+npx --yes http-server . -a 127.0.0.1 -p 8000 -c-1
 ```
 
 Open `http://localhost:8000/`.
+
+This preview server supports HTTP byte-range requests, so the MP4 seek bar works locally. No build step is needed.
 
 ## Publish with GitHub Pages
 
