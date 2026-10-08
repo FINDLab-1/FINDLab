@@ -15,7 +15,7 @@ Published at <https://findlab-1.github.io/FINDLab/>.
 
 ## Header resources and media paths
 
-The header shows **Paper**, **Code**, and **Video** as disabled light-gray pill buttons in the original compact style. Their destinations are intentionally unset in `index.html`. Embedded media does not enable these header resources.
+The author line reads **Anonymous Authors for IEEE ICRA 2027 submission**. The header shows **Paper**, **Code**, and **Video** as disabled light-gray pill buttons in the original compact style, followed by **Comming Soon!** above Abstract. Their destinations are intentionally unset in `index.html`. Embedded media does not enable these header resources.
 
 The manuscript's Abstract appears between the header and the looping video, with paragraph breaks for readability and its self-referential project-page URL omitted. The previous introduction below the video is removed to avoid repeating the abstract; the diagnosis flow and overview image slot follow the video.
 

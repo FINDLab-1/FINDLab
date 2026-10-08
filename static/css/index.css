@@ -78,6 +78,15 @@ strong {
 .publication-authors {
   color: var(--body-ink);
   font-size: 19px;
+  text-wrap: balance;
+}
+
+.publication-status {
+  margin-top: 20px;
+  color: var(--muted-ink);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 .publication-resources {
