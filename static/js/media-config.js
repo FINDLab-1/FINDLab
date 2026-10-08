@@ -8,15 +8,15 @@
  * No external players, tracking scripts, or media-generation steps are used.
  */
 window.FIND_LAB_MEDIA = Object.freeze({
-  // User-selected findlab_parallel_hero.gif, copied unchanged: a 15-second
-  // infinite loop, from a Nova Carter close-up to a grid of 15 configurations
+  // Existing findlab_parallel_clean.mp4, copied unchanged: a 15-second loop
+  // without titles, labels, legends, or a visible page caption, as requested.
+  // The camera moves from a Nova Carter close-up to a grid of 15 configurations
   // across five environment families with 9 Nova Carter and 6 ANYmal-C robots.
   // Separately recorded episodes are replayed together at their original 1x
   // timestamps; each scene keeps its static geometry and terminal poses hold.
   // This is a recorded-state visualization, not a new live parallel evaluation,
   // an online-adaptation experiment, or an all-success demonstration.
-  // The version suffix ensures browsers fetch the replacement GIF.
-  heroMedia: "./static/media/hero.gif?v=476c3581",
+  heroMedia: "./static/media/hero-clean.mp4",
 
   // An existing overview image matching Fig. 1 of the current manuscript.
   // No figure is extracted from the PDF to fill this slot.

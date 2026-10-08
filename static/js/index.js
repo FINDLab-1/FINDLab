@@ -78,11 +78,14 @@
       video.autoplay = !reduceMotion.matches;
       const syncToggle = () => {
         loopToggle.textContent = video.paused ? "Play loop" : "Pause loop";
+        loopToggle.dataset.paused = String(video.paused);
       };
-      loopToggle.addEventListener("click", () => {
+      const togglePlayback = () => {
         if (video.paused) video.play().catch(syncToggle);
         else video.pause();
-      });
+      };
+      loopToggle.addEventListener("click", togglePlayback);
+      video.addEventListener("click", togglePlayback);
       video.addEventListener("play", syncToggle);
       video.addEventListener("pause", syncToggle);
       reduceMotion.addEventListener("change", (event) => {
@@ -97,8 +100,10 @@
       if (isHero) {
         loopToggle.hidden = false;
         loopToggle.textContent = video.paused ? "Play loop" : "Pause loop";
+        loopToggle.dataset.paused = String(video.paused);
         if (!reduceMotion.matches) video.play().catch(() => {
           loopToggle.textContent = "Play loop";
+          loopToggle.dataset.paused = "true";
         });
       }
     }, { once: true });
