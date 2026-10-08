@@ -228,14 +228,14 @@
   }
 
   const imageSlots = {
-    overviewImage: "Configure factors, measure outcomes and termination locations, inspect synchronized diagnostics, and separately evaluate a bounded adjustment.",
+    overviewImage: "Configure factors; measure run outcomes and termination locations; inspect synchronized progress, speeds, centerline offset, heading error, and chassis clearance; then propose at most one permitted adjustment and evaluate it separately.",
     proposalImage: "ANYmal-C / DWA: A uses aggregate outcomes and proposes a planning obstacle envelope of 0.65 m; L adds diagnostic plots and a separate execution summary and proposes 0.45 m, from F at 0.55 m. Restricted corrective motion is a hypothesis, not an established cause.",
     resultsImage: "Descriptive pooled success on selected Nova Carter conditions. MPPI: F 0%, A 1.25%, L 18.75%. DWA: F 25%, A 30%, L 40%. RL-PPO: F 2.11%, A 12.11%, L 22.11%. Compare inputs within each method; counts follow in the table.",
   };
   Object.entries(imageSlots).forEach(([key, label]) => mountImage(document.querySelector(`[data-media="${key}"]`), assetURL(media[key]), label));
   mountVideo("heroMedia", "Recorded episodes visualized together in static Isaac Sim scenes", "heroPoster", "hero-video");
   mountVideo("mainVideo", "Research Overview", "mainPoster", "research-video");
-  mountVideo("diagnosisVideo", "Additional recorded MPPI diagnostic comparison: Nova Carter timeout and ANYmal-C collision", "diagnosisPoster", "diagnosis-video");
+  mountVideo("diagnosisVideo", "Nearby Termination Locations, Different Behaviors: additional recorded MPPI example, Nova Carter TIMEOUT and ANYmal-C COLLISION", "diagnosisPoster", "diagnosis-video");
   mountVideo("pairedVideo", "Illustrative recorded ANYmal-C DWA episodes: F and A collide; L reaches the goal", "pairedPoster", "paired-video");
   const tutorial = mountVideo("tutorialVideo", "Using FIND-Lab", "tutorialPoster", "tutorial-video");
 

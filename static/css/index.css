@@ -134,3 +134,17 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex="0"]:foc
   .media-caption { font-size: 14px; }
   .site-footer { margin-top: 60px; }
 }
+
+/* Match the page's reading order to the four workflow stages. */
+.section-nav .nav-step { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 4px; border: 1px solid var(--rule); border-radius: 50%; color: var(--accent); font-size: 12px; font-weight: 600; }
+.workflow-step { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; color: var(--accent); font-size: 16px; font-weight: 600; }
+.workflow-step > span { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; background: var(--accent); color: #fff; font-size: 16px; }
+.workflow-text h3 a { color: inherit; text-underline-offset: 4px; }
+.workflow-text h3 a:hover { color: var(--accent); text-decoration: underline; }
+.measurement-definitions > div { padding: 22px 0; border-top: 1px solid var(--rule); }
+.measurement-definitions dt { margin-bottom: 8px; color: var(--ink); font-weight: 600; }
+.step-connection { margin-top: 20px; color: var(--accent); }
+.workflow-continuation { margin-bottom: 16px; color: var(--muted-ink); font-size: 15px; text-align: center; }
+@media (max-width: 700px) {
+  .section-nav { display: grid; grid-template-columns: repeat(2, max-content); justify-content: center; gap: 10px 18px; text-align: left; }
+}

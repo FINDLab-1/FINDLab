@@ -70,6 +70,7 @@
     "F is the historical reference. RL-PPO A/L include additional training; gains over F do not isolate a diagnostic-input effect.",
     "Read A versus L within each method; evaluation sets differ between methods.",
     "Descriptive, in-sample re-evaluation. One call per condition and input; no significance claim or guarantee for every condition.",
-    "Identical effective A/L proposals share execution: 570 physical A/L evaluations underpin 580 displayed A/L rows."
+    "Identical effective A/L proposals share execution: 570 physical A/L evaluations underpin 580 displayed A/L rows.",
+    "Because the historical F results were used to select these conditions, gains over F may include regression to the mean."
   ]
 }

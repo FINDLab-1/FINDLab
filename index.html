@@ -10,10 +10,10 @@
   <title>FIND-Lab: A Factor-Controlled Benchmark for Informed Navigation Diagnosis in Constrained Spaces</title>
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=bfbce560c3">
+  <link rel="stylesheet" href="./static/css/index.css?v=a27bb7de95">
   <link rel="icon" type="image/png" href="./static/images/logo.png?v=2">
-  <script defer src="./static/js/media-config.js?v=7fb5e9a046"></script>
-  <script defer src="./static/js/index.js?v=cb8a1e0d65"></script>
+  <script defer src="./static/js/media-config.js?v=c96d5748ce"></script>
+  <script defer src="./static/js/index.js?v=e884e2a08e"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -27,10 +27,10 @@
       <a class="resource-pill resource-link" href="#research-overview">Video</a>
     </div>
     <nav class="section-nav" aria-label="On this page">
-      <a href="#environments">Environments</a>
-      <a href="#diagnosis">Diagnosis</a>
-      <a href="#results">Results</a>
-      <a href="#using-find-lab">Using FIND-Lab</a>
+      <a href="#environments"><span class="nav-step">1</span> Configure</a>
+      <a href="#measurement"><span class="nav-step">2</span> Measure</a>
+      <a href="#diagnosis"><span class="nav-step">3</span> Inspect</a>
+      <a href="#informed-adjustments"><span class="nav-step">4</span> Propose &amp; test</a>
     </nav>
   </header>
 
@@ -76,7 +76,7 @@
     <ul class="takeaways" aria-label="Research contributions">
       <li><strong>Controlled environments</strong><span>Vary interpretable passage factors.</span></li>
       <li><strong>Time-aligned diagnostics</strong><span>Connect outcomes to preceding behavior.</span></li>
-      <li><strong>Reviewable adjustments</strong><span>Propose a bounded change, then re-evaluate.</span></li>
+      <li><strong>LLM-assisted adjustments</strong><span>Propose a bounded change, then re-evaluate.</span></li>
     </ul>
   </section>
 
@@ -89,91 +89,93 @@
       <div class="media-frame" data-media="overviewImage" style="--media-ratio: 1600 / 610" role="img" aria-label="Benchmark workflow image unavailable"></div>
     </figure>
     <ol class="workflow-text compact-diagram" aria-label="FIND-Lab workflow">
-      <li><h3>Configure</h3><p>Control factors across five environment families, two robot platforms, and four navigation methods.</p></li>
-      <li><h3>Measure</h3><p>Compare success, collision, timeout, and termination locations at each factor setting.</p></li>
-      <li><h3>Inspect</h3><p>Follow route progress, speed, and body, head, and tail clearance with a synchronized time cursor.</p></li>
-      <li><h3>Propose &amp; test</h3><p>Compare aggregate and added diagnostic inputs, propose one permitted change, and evaluate it separately.</p></li>
+      <li><h3><a href="#environments">Configure</a></h3><p>Control factors across five environment kinds, two robot platforms, and four navigation methods.</p></li>
+      <li><h3><a href="#measurement">Measure</a></h3><p>Record run outcomes and termination locations at each factor setting.</p></li>
+      <li><h3><a href="#diagnosis">Inspect</a></h3><p>Follow route progress, actual and progress speeds, centerline offset, heading error, and body, head, and tail clearance with a synchronized time cursor.</p></li>
+      <li><h3><a href="#informed-adjustments">Propose &amp; test</a></h3><p>Compare aggregate and added diagnostic inputs, propose at most one permitted adjustment, and evaluate it separately.</p></li>
     </ol>
     <div class="media-frame follow-on-media" data-media="mainVideo" role="img" aria-label="Research overview video unavailable"></div>
+    <p class="media-caption reading-width">Edited configuration examples illustrate supported settings; the benchmark evaluates fixed configurations with one factor varied at a time. The Recovery Pocket width/depth sequence is an additional geometry configuration example; its benchmark sweeps initial heading ψ₀ at fixed geometry. The U-Shape sequence combines changes to variant and geometry, rather than a single-factor sweep. The later ANYmal-C / DWA / S-Bend (θ = 10°) illustration uses planning obstacle envelopes of F 0.55 m, A 0.65 m, and L 0.45 m; F/A end in collision and L reaches the goal.</p>
   </section>
 
   <section id="environments" class="research-section page-width" aria-labelledby="environments-title">
     <div class="reading-width section-intro">
+      <p class="workflow-step"><span>1</span> Configure</p>
       <h2 id="environments-title" class="title section-title">Factor-Controlled Environments</h2>
-      <p>Five environment families expose interpretable passage factors. These archived initial views illustrate selected settings from six sweeps, with one factor varied at a time.</p>
+      <p>Five environment kinds expose interpretable passage factors. These archived initial views illustrate selected settings from six sweeps, with one factor varied at a time.</p>
     </div>
-    <div class="environment-tabs" role="tablist" aria-label="Environment family">
+    <div class="environment-tabs" role="tablist" aria-label="Environment kind">
       <button type="button" role="tab" id="tab-straight" aria-controls="panel-straight" aria-selected="true" tabindex="0">Straight</button>
-      <button type="button" role="tab" id="tab-single-bend" aria-controls="panel-single-bend" aria-selected="false" tabindex="-1">Single Bend</button>
+      <button type="button" role="tab" id="tab-single-bend" aria-controls="panel-single-bend" aria-selected="false" tabindex="-1">Single-Bend</button>
       <button type="button" role="tab" id="tab-s-bend" aria-controls="panel-s-bend" aria-selected="false" tabindex="-1">S-Bend</button>
-      <button type="button" role="tab" id="tab-recovery" aria-controls="panel-recovery" aria-selected="false" tabindex="-1">Recovery</button>
+      <button type="button" role="tab" id="tab-recovery" aria-controls="panel-recovery" aria-selected="false" tabindex="-1">Recovery Pocket</button>
       <button type="button" role="tab" id="tab-u-shape" aria-controls="panel-u-shape" aria-selected="false" tabindex="-1">U-Shape</button>
     </div>
     <div id="panel-straight" role="tabpanel" aria-labelledby="tab-straight" tabindex="0">
-      <p class="environment-description">Width varies; the corridor remains straight.</p>
+      <p class="environment-description">Passage width w varies; the corridor remains straight.</p>
       <div class="environment-grid" data-environment="straight">
         <figure>
           <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Straight setting image unavailable"></div>
-          <figcaption><span>Passage width</span><strong>0.9 m</strong></figcaption>
+          <figcaption><span>Passage width w</span><strong>0.9 m</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Straight setting image unavailable"></div>
-          <figcaption><span>Passage width</span><strong>1.2 m</strong></figcaption>
+          <figcaption><span>Passage width w</span><strong>1.2 m</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Straight setting image unavailable"></div>
-          <figcaption><span>Passage width</span><strong>1.5 m</strong></figcaption>
+          <figcaption><span>Passage width w</span><strong>1.5 m</strong></figcaption>
         </figure>
       </div>
     </div>
     <div id="panel-single-bend" role="tabpanel" aria-labelledby="tab-single-bend" tabindex="0" hidden>
-      <p class="environment-description">Angle varies; passage width stays at 1.2 m.</p>
+      <p class="environment-description">Bend θ varies; passage width stays at 1.2 m.</p>
       <div class="environment-grid" data-environment="single-bend">
         <figure>
-          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Single Bend setting image unavailable"></div>
-          <figcaption><span>Bend angle</span><strong>10°</strong></figcaption>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Single-Bend setting image unavailable"></div>
+          <figcaption><span>Bend θ</span><strong>10°</strong></figcaption>
         </figure>
         <figure>
-          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Single Bend setting image unavailable"></div>
-          <figcaption><span>Bend angle</span><strong>20°</strong></figcaption>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Single-Bend setting image unavailable"></div>
+          <figcaption><span>Bend θ</span><strong>20°</strong></figcaption>
         </figure>
         <figure>
-          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Single Bend setting image unavailable"></div>
-          <figcaption><span>Bend angle</span><strong>40°</strong></figcaption>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Single-Bend setting image unavailable"></div>
+          <figcaption><span>Bend θ</span><strong>40°</strong></figcaption>
         </figure>
       </div>
     </div>
     <div id="panel-s-bend" role="tabpanel" aria-labelledby="tab-s-bend" tabindex="0" hidden>
-      <p class="environment-description">Angle varies; passage width stays at 1.2 m.</p>
+      <p class="environment-description">Bend θ varies; passage width stays at 1.2 m.</p>
       <div class="environment-grid" data-environment="s-bend">
         <figure>
           <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="S-Bend setting image unavailable"></div>
-          <figcaption><span>Bend angle</span><strong>10°</strong></figcaption>
+          <figcaption><span>Bend θ</span><strong>10°</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="S-Bend setting image unavailable"></div>
-          <figcaption><span>Bend angle</span><strong>20°</strong></figcaption>
+          <figcaption><span>Bend θ</span><strong>20°</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="S-Bend setting image unavailable"></div>
-          <figcaption><span>Bend angle</span><strong>40°</strong></figcaption>
+          <figcaption><span>Bend θ</span><strong>40°</strong></figcaption>
         </figure>
       </div>
     </div>
     <div id="panel-recovery" role="tabpanel" aria-labelledby="tab-recovery" tabindex="0" hidden>
-      <p class="environment-description">Initial heading relative to the exit varies; geometry stays fixed.</p>
+      <p class="environment-description">Initial heading ψ₀ relative to the exit direction varies; geometry stays fixed.</p>
       <div class="environment-grid" data-environment="recovery">
         <figure>
-          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Recovery setting image unavailable"></div>
-          <figcaption><span>Initial heading</span><strong>90°</strong></figcaption>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Recovery Pocket setting image unavailable"></div>
+          <figcaption><span>Initial heading ψ₀</span><strong>90°</strong></figcaption>
         </figure>
         <figure>
-          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Recovery setting image unavailable"></div>
-          <figcaption><span>Initial heading</span><strong>140°</strong></figcaption>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Recovery Pocket setting image unavailable"></div>
+          <figcaption><span>Initial heading ψ₀</span><strong>140°</strong></figcaption>
         </figure>
         <figure>
-          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Recovery setting image unavailable"></div>
-          <figcaption><span>Initial heading</span><strong>180°</strong></figcaption>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Recovery Pocket setting image unavailable"></div>
+          <figcaption><span>Initial heading ψ₀</span><strong>180°</strong></figcaption>
         </figure>
       </div>
     </div>
@@ -183,36 +185,36 @@
         <button type="button" role="tab" id="tab-u-curved" aria-controls="panel-u-curved" aria-selected="false" tabindex="-1">Curved</button>
       </div>
     <div id="panel-u-angular" role="tabpanel" aria-labelledby="tab-u-angular" tabindex="0">
-      <p class="environment-description">Corner spacing varies in the angular U passage.</p>
+      <p class="environment-description">Angular spacing d varies: distance between two right-angle corners.</p>
       <div class="environment-grid" data-environment="u-angular">
         <figure>
           <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="U-Shape / angular setting image unavailable"></div>
-          <figcaption><span>Inter-corner spacing</span><strong>2.5 m</strong></figcaption>
+          <figcaption><span>Angular spacing d</span><strong>2.5 m</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="U-Shape / angular setting image unavailable"></div>
-          <figcaption><span>Inter-corner spacing</span><strong>3.0 m</strong></figcaption>
+          <figcaption><span>Angular spacing d</span><strong>3.0 m</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="U-Shape / angular setting image unavailable"></div>
-          <figcaption><span>Inter-corner spacing</span><strong>3.5 m</strong></figcaption>
+          <figcaption><span>Angular spacing d</span><strong>3.5 m</strong></figcaption>
         </figure>
       </div>
     </div>
     <div id="panel-u-curved" role="tabpanel" aria-labelledby="tab-u-curved" tabindex="0" hidden>
-      <p class="environment-description">Radius varies in the curved U passage.</p>
+      <p class="environment-description">Curved radius r varies in the curved U-Shape passage.</p>
       <div class="environment-grid" data-environment="u-curved">
         <figure>
           <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="U-Shape / curved setting image unavailable"></div>
-          <figcaption><span>Bend radius</span><strong>1.25 m</strong></figcaption>
+          <figcaption><span>Curved radius r</span><strong>1.25 m</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="U-Shape / curved setting image unavailable"></div>
-          <figcaption><span>Bend radius</span><strong>1.5 m</strong></figcaption>
+          <figcaption><span>Curved radius r</span><strong>1.5 m</strong></figcaption>
         </figure>
         <figure>
           <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="U-Shape / curved setting image unavailable"></div>
-          <figcaption><span>Bend radius</span><strong>2.0 m</strong></figcaption>
+          <figcaption><span>Curved radius r</span><strong>2.0 m</strong></figcaption>
         </figure>
       </div>
     </div>
@@ -220,20 +222,35 @@
     <p class="media-caption reading-width">Archived Isaac Sim initial views illustrate selected factor settings. Geometry remains fixed when only the initial heading changes.</p>
   </section>
 
+  <section id="measurement" class="research-section reading-width" aria-labelledby="measurement-title">
+    <div class="section-intro">
+      <p class="workflow-step"><span>2</span> Measure</p>
+      <h2 id="measurement-title" class="title section-title">Outcomes and Termination Locations</h2>
+      <p>Each run connects its factor setting to an outcome and a termination location. Outcomes record whether the run succeeds or ends in collision, timeout, planner failure, or an ANYmal-C fall. Reset rejections are counted separately.</p>
+    </div>
+    <dl class="measurement-definitions">
+      <div><dt>Whether · Run outcome</dt><dd>The runtime collision outcome uses horizontal body-contact force above 100 N. Zero geometric clearance alone does not define that outcome.</dd></div>
+      <div><dt>Where · Termination location</dt><dd>The last valid pose locates where the run ends; it does not identify where the problem first arose or establish its cause.</dd></div>
+    </dl>
+    <p class="step-connection">Next, inspect the behavior leading up to that final pose.</p>
+  </section>
+
   <section id="diagnosis" class="research-section page-width" aria-labelledby="diagnosis-title">
     <div class="reading-width section-intro">
-      <h2 id="diagnosis-title" class="title section-title">Nearby Endpoints, Different Behaviors</h2>
+      <p class="workflow-step"><span>3</span> Inspect</p>
+      <h2 id="diagnosis-title" class="title section-title">Nearby Termination Locations, Different Behaviors</h2>
       <p>Nearby termination locations can hide different behaviors. This additional recorded MPPI example contrasts stalled progress with motion that continues until collision, using synchronized trajectory, speed, and clearance traces.</p>
-      <p class="case-context">Same MPPI method and curved U passage (radius 1.75 m, case 02): Nova Carter reaches TIMEOUT; ANYmal-C reaches COLLISION.</p>
+      <p class="case-context">Same MPPI method and U-Shape / curved setting (r = 1.75 m, case 02): Nova Carter reaches TIMEOUT; ANYmal-C reaches COLLISION.</p>
     </div>
     <figure>
       <div class="media-frame" data-media="diagnosisVideo" role="img" aria-label="Diagnostic comparison video unavailable"></div>
-      <figcaption class="media-caption reading-width">1× animation of archived diagnostic data; terminal poses are held. Diagnostic body clearance excludes articulated legs and does not replace the runtime contact-based collision outcome.</figcaption>
+      <figcaption class="media-caption reading-width">1× animation of archived diagnostic data; terminal poses are held. Diagnostic chassis clearance excludes articulated legs and does not replace the runtime contact-based collision outcome.</figcaption>
     </figure>
   </section>
 
   <section id="informed-adjustments" class="research-section page-width" aria-labelledby="adjustments-title">
     <div class="reading-width section-intro">
+      <p class="workflow-step"><span>4</span> Propose &amp; test</p>
       <h2 id="adjustments-title" class="title section-title">From Evidence to a Testable Adjustment</h2>
       <p>In this ANYmal-C / DWA case, both inputs include outcome aggregates, common setting definitions, original values, and allowed changes. L adds diagnostic plots and a separate DWA execution summary.</p>
     </div>
@@ -258,7 +275,7 @@
         </dl>
       </article>
     </div>
-    <p class="media-caption reading-width">F uses a 0.55 m planning obstacle envelope. This parameter is distinct from physical robot dimensions and the diagnostic body envelope. The interpretations above are hypotheses.</p>
+    <p class="media-caption reading-width">F uses a 0.55 m planning obstacle envelope: the required distance between a candidate robot reference point and obstacle points. It is distinct from physical robot dimensions, the diagnostic chassis envelope, and the collision threshold. The interpretations above are hypotheses.</p>
     <figure class="follow-on-media">
       <div class="media-frame" data-media="pairedVideo" role="img" aria-label="Recorded setting comparison video unavailable"></div>
       <figcaption class="media-caption reading-width">Illustrative recorded episodes: F and A collide; L reaches the goal. The displayed F episode is distinct from the episode supplied to the LLM. This example does not establish the failure cause or guarantee improvement.</figcaption>
@@ -267,6 +284,7 @@
 
   <section id="results" class="research-section page-width" aria-labelledby="results-title">
     <div class="reading-width section-intro">
+      <p class="workflow-continuation">Propose &amp; test · Re-evaluation</p>
       <h2 id="results-title" class="title section-title">Quantitative Re-evaluation</h2>
       <p>Descriptive re-evaluation on 29 selected Nova Carter conditions with reference success below 50%. Compare aggregate and diagnostic inputs within each method.</p>
     </div>
@@ -288,7 +306,7 @@
       <p>F is the historical reference. RL-PPO A/L include additional training. Identical A/L settings may share executions.</p>
       <details class="evaluation-scope">
         <summary>Evaluation scope</summary>
-        <p>These are descriptive, in-sample results on selected conditions. Evaluation sets differ by method, so comparisons should stay within each method. Identical effective A/L proposals share executions. Gains over historical F do not isolate a diagnostic-input effect for RL-PPO. Pooled rates do not establish improvement in every condition or statistical significance.</p>
+        <p>These are descriptive, in-sample results on selected conditions. Evaluation sets differ by method, so comparisons should stay within each method. Identical effective A/L proposals share executions. Gains over historical F do not isolate a diagnostic-input effect for RL-PPO. Because the historical F results were used to select these conditions, gains over F may include regression to the mean. Pooled rates do not establish improvement in every condition or statistical significance.</p>
       </details>
     </div>
   </section>
@@ -317,7 +335,7 @@
       </button>
     </div>
     <div class="media-frame" data-media="tutorialVideo" role="img" aria-label="Tool tutorial video unavailable"></div>
-    <p class="media-caption reading-width">An edited walkthrough of saved evidence. Scene setup and the loaded result are separate examples; no new evaluation, model call, or parameter application is run in this recording.</p>
+    <p class="media-caption reading-width">An edited walkthrough of saved evidence. Scene setup and the loaded result are separate examples; no new evaluation, model call, or parameter application is run in this recording. The visible assistant-comparison option is outside the study reported in this paper. In the saved-result view, “Failure phase” identifies the run’s termination phase.</p>
   </section>
 </main>
 
