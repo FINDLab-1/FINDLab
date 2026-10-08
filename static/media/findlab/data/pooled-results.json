@@ -1,0 +1,75 @@
+{
+  "source": "Paper Table V; checked against the preserved campaign method totals.",
+  "rows": [
+    {
+      "method": "MPPI",
+      "input": "F",
+      "successes": 0,
+      "episodes": 80,
+      "success_rate_percent": 0.0
+    },
+    {
+      "method": "MPPI",
+      "input": "A",
+      "successes": 1,
+      "episodes": 80,
+      "success_rate_percent": 1.25
+    },
+    {
+      "method": "MPPI",
+      "input": "L",
+      "successes": 15,
+      "episodes": 80,
+      "success_rate_percent": 18.75
+    },
+    {
+      "method": "DWA",
+      "input": "F",
+      "successes": 5,
+      "episodes": 20,
+      "success_rate_percent": 25.0
+    },
+    {
+      "method": "DWA",
+      "input": "A",
+      "successes": 6,
+      "episodes": 20,
+      "success_rate_percent": 30.0
+    },
+    {
+      "method": "DWA",
+      "input": "L",
+      "successes": 8,
+      "episodes": 20,
+      "success_rate_percent": 40.0
+    },
+    {
+      "method": "RL-PPO",
+      "input": "F",
+      "successes": 4,
+      "episodes": 190,
+      "success_rate_percent": 2.1052631578947367
+    },
+    {
+      "method": "RL-PPO",
+      "input": "A",
+      "successes": 23,
+      "episodes": 190,
+      "success_rate_percent": 12.105263157894736
+    },
+    {
+      "method": "RL-PPO",
+      "input": "L",
+      "successes": 42,
+      "episodes": 190,
+      "success_rate_percent": 22.105263157894736
+    }
+  ],
+  "notes": [
+    "29 selected Nova Carter conditions with reference success below 50%; ten episodes per condition and input.",
+    "F is the historical reference. RL-PPO A/L include additional training; gains over F do not isolate a diagnostic-input effect.",
+    "Read A versus L within each method; evaluation sets differ between methods.",
+    "Descriptive, in-sample re-evaluation. One call per condition and input; no significance claim or guarantee for every condition.",
+    "Identical effective A/L proposals share execution: 570 physical A/L evaluations underpin 580 displayed A/L rows."
+  ]
+}

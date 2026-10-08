@@ -1,0 +1,183 @@
+{
+  "families": 5,
+  "sweeps": 6,
+  "settings_in_benchmark": 33,
+  "shown_values_are_selected_examples": true,
+  "note": "Archived initial views. Factor changes are discrete configuration examples; no online adaptation is shown.",
+  "panels": [
+    {
+      "id": "straight",
+      "family": "straight",
+      "title": "Straight",
+      "factor": "Passage width",
+      "unit": "m",
+      "caption": "Width varies; the corridor remains straight.",
+      "triptych": "images/environments/straight-triptych.webp",
+      "items": [
+        {
+          "value": 0.9,
+          "label": "0.9 m",
+          "image": "images/environments/straight-1.webp",
+          "alt": "Archived Isaac Sim initial view: Straight, passage width 0.9 m; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 1.2,
+          "label": "1.2 m",
+          "image": "images/environments/straight-2.webp",
+          "alt": "Archived Isaac Sim initial view: Straight, passage width 1.2 m; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 1.5,
+          "label": "1.5 m",
+          "image": "images/environments/straight-3.webp",
+          "alt": "Archived Isaac Sim initial view: Straight, passage width 1.5 m; Nova Carter, DWA, case 01."
+        }
+      ]
+    },
+    {
+      "id": "single-bend",
+      "family": "single-bend",
+      "title": "Single Bend",
+      "factor": "Bend angle",
+      "unit": "deg",
+      "caption": "Angle varies; passage width stays at 1.2 m.",
+      "triptych": "images/environments/single-bend-triptych.webp",
+      "items": [
+        {
+          "value": 10,
+          "label": "10°",
+          "image": "images/environments/single-bend-1.webp",
+          "alt": "Archived Isaac Sim initial view: Single Bend, bend angle 10°; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 20,
+          "label": "20°",
+          "image": "images/environments/single-bend-2.webp",
+          "alt": "Archived Isaac Sim initial view: Single Bend, bend angle 20°; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 40,
+          "label": "40°",
+          "image": "images/environments/single-bend-3.webp",
+          "alt": "Archived Isaac Sim initial view: Single Bend, bend angle 40°; Nova Carter, DWA, case 01."
+        }
+      ]
+    },
+    {
+      "id": "s-bend",
+      "family": "s-bend",
+      "title": "S-Bend",
+      "factor": "Bend angle",
+      "unit": "deg",
+      "caption": "Angle varies; passage width stays at 1.2 m.",
+      "triptych": "images/environments/s-bend-triptych.webp",
+      "items": [
+        {
+          "value": 10,
+          "label": "10°",
+          "image": "images/environments/s-bend-1.webp",
+          "alt": "Archived Isaac Sim initial view: S-Bend, bend angle 10°; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 20,
+          "label": "20°",
+          "image": "images/environments/s-bend-2.webp",
+          "alt": "Archived Isaac Sim initial view: S-Bend, bend angle 20°; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 40,
+          "label": "40°",
+          "image": "images/environments/s-bend-3.webp",
+          "alt": "Archived Isaac Sim initial view: S-Bend, bend angle 40°; Nova Carter, DWA, case 01."
+        }
+      ]
+    },
+    {
+      "id": "recovery",
+      "family": "recovery",
+      "title": "Recovery",
+      "factor": "Initial heading",
+      "unit": "deg",
+      "caption": "Initial heading relative to the exit varies; geometry stays fixed.",
+      "triptych": "images/environments/recovery-triptych.webp",
+      "items": [
+        {
+          "value": 90,
+          "label": "90°",
+          "image": "images/environments/recovery-1.webp",
+          "alt": "Archived Isaac Sim initial view: Recovery, initial heading 90°; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 140,
+          "label": "140°",
+          "image": "images/environments/recovery-2.webp",
+          "alt": "Archived Isaac Sim initial view: Recovery, initial heading 140°; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 180,
+          "label": "180°",
+          "image": "images/environments/recovery-3.webp",
+          "alt": "Archived Isaac Sim initial view: Recovery, initial heading 180°; Nova Carter, DWA, case 01."
+        }
+      ]
+    },
+    {
+      "id": "u-angular",
+      "family": "u-shape",
+      "title": "U-Shape / angular",
+      "factor": "Inter-corner spacing",
+      "unit": "m",
+      "caption": "Corner spacing varies in the angular U passage.",
+      "triptych": "images/environments/u-angular-triptych.webp",
+      "items": [
+        {
+          "value": 2.5,
+          "label": "2.5 m",
+          "image": "images/environments/u-angular-1.webp",
+          "alt": "Archived Isaac Sim initial view: U-Shape / angular, inter-corner spacing 2.5 m; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 3.0,
+          "label": "3 m",
+          "image": "images/environments/u-angular-2.webp",
+          "alt": "Archived Isaac Sim initial view: U-Shape / angular, inter-corner spacing 3 m; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 3.5,
+          "label": "3.5 m",
+          "image": "images/environments/u-angular-3.webp",
+          "alt": "Archived Isaac Sim initial view: U-Shape / angular, inter-corner spacing 3.5 m; Nova Carter, DWA, case 01."
+        }
+      ]
+    },
+    {
+      "id": "u-curved",
+      "family": "u-shape",
+      "title": "U-Shape / curved",
+      "factor": "Bend radius",
+      "unit": "m",
+      "caption": "Radius varies in the curved U passage.",
+      "triptych": "images/environments/u-curved-triptych.webp",
+      "items": [
+        {
+          "value": 1.25,
+          "label": "1.25 m",
+          "image": "images/environments/u-curved-1.webp",
+          "alt": "Archived Isaac Sim initial view: U-Shape / curved, bend radius 1.25 m; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 1.5,
+          "label": "1.5 m",
+          "image": "images/environments/u-curved-2.webp",
+          "alt": "Archived Isaac Sim initial view: U-Shape / curved, bend radius 1.5 m; Nova Carter, DWA, case 01."
+        },
+        {
+          "value": 2.0,
+          "label": "2 m",
+          "image": "images/environments/u-curved-3.webp",
+          "alt": "Archived Isaac Sim initial view: U-Shape / curved, bend radius 2 m; Nova Carter, DWA, case 01."
+        }
+      ]
+    }
+  ]
+}

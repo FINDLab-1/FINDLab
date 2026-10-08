@@ -1,0 +1,35 @@
+{
+  "video": "video/tool-walkthrough.mp4",
+  "duration_s": 130,
+  "chapters": [
+    {
+      "id": "configure",
+      "label": "Configure the scene",
+      "start_s": 6,
+      "poster": "images/tool/configure.jpg",
+      "description": "Choose the environment, factor values, robot, start and goal."
+    },
+    {
+      "id": "inspect",
+      "label": "Inspect a saved run",
+      "start_s": 56,
+      "poster": "images/tool/inspect.jpg",
+      "description": "Open a saved result and follow the linked trajectory and speed plots."
+    },
+    {
+      "id": "clearance",
+      "label": "Examine clearance",
+      "start_s": 82,
+      "poster": "images/tool/clearance.jpg",
+      "description": "Inspect body, head and tail clearance and failure phases."
+    },
+    {
+      "id": "propose",
+      "label": "Prepare an adjustment",
+      "start_s": 112,
+      "poster": "images/tool/propose.jpg",
+      "description": "Prepare a bounded question from the saved diagnostic evidence."
+    }
+  ],
+  "note": "Edited walkthrough of actual GUI captures. Scene setup and the loaded diagnostic example are separate; no live evaluation is launched in this walkthrough."
+}

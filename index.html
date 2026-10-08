@@ -10,27 +10,36 @@
   <title>FIND-Lab: A Factor-Controlled Benchmark for Informed Navigation Diagnosis in Constrained Spaces</title>
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=9217e1b18f">
+  <link rel="stylesheet" href="./static/css/index.css?v=bfbce560c3">
   <link rel="icon" type="image/png" href="./static/images/logo.png?v=2">
-  <script defer src="./static/js/media-config.js?v=d50c012552"></script>
-  <script defer src="./static/js/index.js?v=2281f5dc95"></script>
+  <script defer src="./static/js/media-config.js?v=7fb5e9a046"></script>
+  <script defer src="./static/js/index.js?v=cb8a1e0d65"></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to content</a>
 <main id="main-content">
-  <!-- 1. Title and upcoming resources. Destinations have not been assigned yet. -->
   <header class="publication-header page-width">
     <h1 class="title publication-title"><span class="project-name">FIND-Lab:</span> A Factor-Controlled Benchmark for Informed Navigation Diagnosis in Constrained Spaces</h1>
     <p class="publication-authors">Anonymous Authors for IEEE ICRA 2027 submission</p>
     <div class="publication-resources" role="group" aria-label="Project resources">
-      <button class="resource-placeholder" type="button" disabled>Paper</button>
-      <button class="resource-placeholder" type="button" disabled>Code</button>
-      <button class="resource-placeholder" type="button" disabled>Video</button>
+      <button class="resource-pill" type="button" disabled>Paper</button>
+      <button class="resource-pill" type="button" disabled>Code</button>
+      <a class="resource-pill resource-link" href="#research-overview">Video</a>
     </div>
-    <p class="publication-status">Comming Soon!</p>
+    <nav class="section-nav" aria-label="On this page">
+      <a href="#environments">Environments</a>
+      <a href="#diagnosis">Diagnosis</a>
+      <a href="#results">Results</a>
+      <a href="#using-find-lab">Using FIND-Lab</a>
+    </nav>
   </header>
 
-  <!-- 2. Manuscript abstract; the self-referential project-page URL is omitted. -->
-  <section id="abstract" class="reading-width" aria-labelledby="abstract-title">
+  <section class="hero-comparison page-width" aria-label="Recorded episodes visualized together in static Isaac Sim scenes">
+    <div class="media-frame" data-media="heroMedia" role="img" aria-label="Recorded navigation overview unavailable"></div>
+    <div class="loop-controls"><button class="loop-toggle" type="button" aria-controls="hero-video" hidden>Play loop</button></div>
+  </section>
+
+  <section id="abstract" class="research-section reading-width" aria-labelledby="abstract-title">
     <h2 id="abstract-title" class="title section-title">Abstract</h2>
     <div class="research-copy">
       <p>
@@ -64,50 +73,251 @@
         and adjust.
       </p>
     </div>
+    <ul class="takeaways" aria-label="Research contributions">
+      <li><strong>Controlled environments</strong><span>Vary interpretable passage factors.</span></li>
+      <li><strong>Time-aligned diagnostics</strong><span>Connect outcomes to preceding behavior.</span></li>
+      <li><strong>Reviewable adjustments</strong><span>Propose a bounded change, then re-evaluate.</span></li>
+    </ul>
   </section>
 
-  <!-- 3. Recorded navigation overview, diagnosis flow, and Fig. 1 image slot. -->
-  <section class="hero-comparison page-width" aria-label="Recorded navigation across passage environments">
-    <figure>
-      <div class="media-frame" data-media="heroMedia" role="img" aria-label="Recorded navigation overview unavailable"></div>
-    </figure>
-    <button class="loop-toggle" type="button" aria-controls="hero-video" hidden>Pause loop</button>
-    <p class="diagnosis-flow">
-      <span>Controlled factors</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
-      <span>Outcomes</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
-      <span>Termination locations</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
-      <span>Behavioral evidence</span><span class="flow-arrow" aria-hidden="true">&rarr;</span>
-      <span>Parameter proposals and re-evaluation</span>
-    </p>
-    <figure class="overview-figure">
-      <div class="media-frame media-frame--overview" data-media="overviewImage" role="img" aria-label="Benchmark overview image unavailable"></div>
-    </figure>
-  </section>
-
-  <!-- 4. Only a finished research overview belongs in this slot. -->
-  <section id="research-overview" class="video-section page-width" aria-labelledby="research-overview-title">
+  <section id="research-overview" class="research-section page-width" aria-labelledby="research-overview-title">
     <div class="reading-width section-intro">
       <h2 id="research-overview-title" class="title section-title">Research Overview</h2>
-      <p>
-        An overview of controlled factor comparisons, behavioral diagnosis, and parameter
-        proposals with re-evaluation, including the GUI and parallel evaluation.
-      </p>
+      <p>The overview links controlled environments to recorded evidence and re-evaluation. The hero visualizes separately recorded episodes together.</p>
     </div>
-    <div class="media-frame" data-media="mainVideo" role="img" aria-label="Research overview video unavailable"></div>
+    <figure class="workflow-figure wide-diagram">
+      <div class="media-frame" data-media="overviewImage" style="--media-ratio: 1600 / 610" role="img" aria-label="Benchmark workflow image unavailable"></div>
+    </figure>
+    <ol class="workflow-text compact-diagram" aria-label="FIND-Lab workflow">
+      <li><h3>Configure</h3><p>Control factors across five environment families, two robot platforms, and four navigation methods.</p></li>
+      <li><h3>Measure</h3><p>Compare success, collision, timeout, and termination locations at each factor setting.</p></li>
+      <li><h3>Inspect</h3><p>Follow route progress, speed, and body, head, and tail clearance with a synchronized time cursor.</p></li>
+      <li><h3>Propose &amp; test</h3><p>Compare aggregate and added diagnostic inputs, propose one permitted change, and evaluate it separately.</p></li>
+    </ol>
+    <div class="media-frame follow-on-media" data-media="mainVideo" role="img" aria-label="Research overview video unavailable"></div>
   </section>
 
-  <!-- 5. Edited tool walkthrough using saved diagnostic records. -->
-  <section id="using-find-lab" class="video-section page-width" aria-labelledby="using-find-lab-title">
+  <section id="environments" class="research-section page-width" aria-labelledby="environments-title">
+    <div class="reading-width section-intro">
+      <h2 id="environments-title" class="title section-title">Factor-Controlled Environments</h2>
+      <p>Five environment families expose interpretable passage factors. These archived initial views illustrate selected settings from six sweeps, with one factor varied at a time.</p>
+    </div>
+    <div class="environment-tabs" role="tablist" aria-label="Environment family">
+      <button type="button" role="tab" id="tab-straight" aria-controls="panel-straight" aria-selected="true" tabindex="0">Straight</button>
+      <button type="button" role="tab" id="tab-single-bend" aria-controls="panel-single-bend" aria-selected="false" tabindex="-1">Single Bend</button>
+      <button type="button" role="tab" id="tab-s-bend" aria-controls="panel-s-bend" aria-selected="false" tabindex="-1">S-Bend</button>
+      <button type="button" role="tab" id="tab-recovery" aria-controls="panel-recovery" aria-selected="false" tabindex="-1">Recovery</button>
+      <button type="button" role="tab" id="tab-u-shape" aria-controls="panel-u-shape" aria-selected="false" tabindex="-1">U-Shape</button>
+    </div>
+    <div id="panel-straight" role="tabpanel" aria-labelledby="tab-straight" tabindex="0">
+      <p class="environment-description">Width varies; the corridor remains straight.</p>
+      <div class="environment-grid" data-environment="straight">
+        <figure>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Straight setting image unavailable"></div>
+          <figcaption><span>Passage width</span><strong>0.9 m</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Straight setting image unavailable"></div>
+          <figcaption><span>Passage width</span><strong>1.2 m</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Straight setting image unavailable"></div>
+          <figcaption><span>Passage width</span><strong>1.5 m</strong></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div id="panel-single-bend" role="tabpanel" aria-labelledby="tab-single-bend" tabindex="0" hidden>
+      <p class="environment-description">Angle varies; passage width stays at 1.2 m.</p>
+      <div class="environment-grid" data-environment="single-bend">
+        <figure>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Single Bend setting image unavailable"></div>
+          <figcaption><span>Bend angle</span><strong>10°</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Single Bend setting image unavailable"></div>
+          <figcaption><span>Bend angle</span><strong>20°</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Single Bend setting image unavailable"></div>
+          <figcaption><span>Bend angle</span><strong>40°</strong></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div id="panel-s-bend" role="tabpanel" aria-labelledby="tab-s-bend" tabindex="0" hidden>
+      <p class="environment-description">Angle varies; passage width stays at 1.2 m.</p>
+      <div class="environment-grid" data-environment="s-bend">
+        <figure>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="S-Bend setting image unavailable"></div>
+          <figcaption><span>Bend angle</span><strong>10°</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="S-Bend setting image unavailable"></div>
+          <figcaption><span>Bend angle</span><strong>20°</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="S-Bend setting image unavailable"></div>
+          <figcaption><span>Bend angle</span><strong>40°</strong></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div id="panel-recovery" role="tabpanel" aria-labelledby="tab-recovery" tabindex="0" hidden>
+      <p class="environment-description">Initial heading relative to the exit varies; geometry stays fixed.</p>
+      <div class="environment-grid" data-environment="recovery">
+        <figure>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="Recovery setting image unavailable"></div>
+          <figcaption><span>Initial heading</span><strong>90°</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="Recovery setting image unavailable"></div>
+          <figcaption><span>Initial heading</span><strong>140°</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="Recovery setting image unavailable"></div>
+          <figcaption><span>Initial heading</span><strong>180°</strong></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div id="panel-u-shape" role="tabpanel" aria-labelledby="tab-u-shape" tabindex="0" hidden>
+      <div class="environment-tabs variant-tabs" role="tablist" aria-label="U-Shape variant">
+        <button type="button" role="tab" id="tab-u-angular" aria-controls="panel-u-angular" aria-selected="true" tabindex="0">Angular</button>
+        <button type="button" role="tab" id="tab-u-curved" aria-controls="panel-u-curved" aria-selected="false" tabindex="-1">Curved</button>
+      </div>
+    <div id="panel-u-angular" role="tabpanel" aria-labelledby="tab-u-angular" tabindex="0">
+      <p class="environment-description">Corner spacing varies in the angular U passage.</p>
+      <div class="environment-grid" data-environment="u-angular">
+        <figure>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="U-Shape / angular setting image unavailable"></div>
+          <figcaption><span>Inter-corner spacing</span><strong>2.5 m</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="U-Shape / angular setting image unavailable"></div>
+          <figcaption><span>Inter-corner spacing</span><strong>3.0 m</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="U-Shape / angular setting image unavailable"></div>
+          <figcaption><span>Inter-corner spacing</span><strong>3.5 m</strong></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div id="panel-u-curved" role="tabpanel" aria-labelledby="tab-u-curved" tabindex="0" hidden>
+      <p class="environment-description">Radius varies in the curved U passage.</p>
+      <div class="environment-grid" data-environment="u-curved">
+        <figure>
+          <div class="media-frame" data-setting="0" style="--media-ratio: 1" role="img" aria-label="U-Shape / curved setting image unavailable"></div>
+          <figcaption><span>Bend radius</span><strong>1.25 m</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="1" style="--media-ratio: 1" role="img" aria-label="U-Shape / curved setting image unavailable"></div>
+          <figcaption><span>Bend radius</span><strong>1.5 m</strong></figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame" data-setting="2" style="--media-ratio: 1" role="img" aria-label="U-Shape / curved setting image unavailable"></div>
+          <figcaption><span>Bend radius</span><strong>2.0 m</strong></figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+    <p class="media-caption reading-width">Archived Isaac Sim initial views illustrate selected factor settings. Geometry remains fixed when only the initial heading changes.</p>
+  </section>
+
+  <section id="diagnosis" class="research-section page-width" aria-labelledby="diagnosis-title">
+    <div class="reading-width section-intro">
+      <h2 id="diagnosis-title" class="title section-title">Nearby Endpoints, Different Behaviors</h2>
+      <p>Nearby termination locations can hide different behaviors. This additional recorded MPPI example contrasts stalled progress with motion that continues until collision, using synchronized trajectory, speed, and clearance traces.</p>
+      <p class="case-context">Same MPPI method and curved U passage (radius 1.75 m, case 02): Nova Carter reaches TIMEOUT; ANYmal-C reaches COLLISION.</p>
+    </div>
+    <figure>
+      <div class="media-frame" data-media="diagnosisVideo" role="img" aria-label="Diagnostic comparison video unavailable"></div>
+      <figcaption class="media-caption reading-width">1× animation of archived diagnostic data; terminal poses are held. Diagnostic body clearance excludes articulated legs and does not replace the runtime contact-based collision outcome.</figcaption>
+    </figure>
+  </section>
+
+  <section id="informed-adjustments" class="research-section page-width" aria-labelledby="adjustments-title">
+    <div class="reading-width section-intro">
+      <h2 id="adjustments-title" class="title section-title">From Evidence to a Testable Adjustment</h2>
+      <p>In this ANYmal-C / DWA case, both inputs include outcome aggregates, common setting definitions, original values, and allowed changes. L adds diagnostic plots and a separate DWA execution summary.</p>
+    </div>
+    <figure class="wide-diagram">
+      <div class="media-frame" data-media="proposalImage" style="--media-ratio: 1600 / 930" role="img" aria-label="Proposal comparison image unavailable"></div>
+    </figure>
+    <div class="proposal-text compact-diagram">
+      <article class="proposal-column">
+        <h3>A · Aggregate input</h3>
+        <dl>
+          <dt>Observation</dt><dd>40 / 40 input episodes collide. The input includes outcome aggregates, setting definitions, original values, and allowed changes.</dd>
+          <dt>Hypothesis</dt><dd>The planning margin may be too small.</dd>
+          <dt>Proposed planning obstacle envelope</dt><dd class="proposal-value">0.55 → 0.65 m</dd>
+        </dl>
+      </article>
+      <article class="proposal-column">
+        <h3>L · Added diagnostic input</h3>
+        <dl>
+          <dt>Observations</dt><dd>Progress stalls; offset and heading error grow. Tail clearance approaches zero. The separate DWA summary reports no valid trajectory for 439 / 449 commands after 10 s.</dd>
+          <dt>Hypothesis</dt><dd>The envelope may restrict corrective motion.</dd>
+          <dt>Proposed planning obstacle envelope</dt><dd class="proposal-value">0.55 → 0.45 m</dd>
+        </dl>
+      </article>
+    </div>
+    <p class="media-caption reading-width">F uses a 0.55 m planning obstacle envelope. This parameter is distinct from physical robot dimensions and the diagnostic body envelope. The interpretations above are hypotheses.</p>
+    <figure class="follow-on-media">
+      <div class="media-frame" data-media="pairedVideo" role="img" aria-label="Recorded setting comparison video unavailable"></div>
+      <figcaption class="media-caption reading-width">Illustrative recorded episodes: F and A collide; L reaches the goal. The displayed F episode is distinct from the episode supplied to the LLM. This example does not establish the failure cause or guarantee improvement.</figcaption>
+    </figure>
+  </section>
+
+  <section id="results" class="research-section page-width" aria-labelledby="results-title">
+    <div class="reading-width section-intro">
+      <h2 id="results-title" class="title section-title">Quantitative Re-evaluation</h2>
+      <p>Descriptive re-evaluation on 29 selected Nova Carter conditions with reference success below 50%. Compare aggregate and diagnostic inputs within each method.</p>
+    </div>
+    <figure class="wide-diagram results-figure">
+      <div class="media-frame" data-media="resultsImage" style="--media-ratio: 1152 / 590.4" role="img" aria-label="Pooled re-evaluation chart unavailable"></div>
+    </figure>
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <caption>Successes / episodes (success rate) · Paper Table V</caption>
+        <thead><tr><th scope="col">Method</th><th scope="col">Historical F</th><th scope="col">A<span>Aggregates</span></th><th scope="col">L<span>Added diagnostics</span></th></tr></thead>
+        <tbody>
+          <tr data-method="MPPI"><th scope="row">MPPI</th><td data-input="F"><span class="result-count">0/80</span> <span class="result-rate">(0%)</span></td><td data-input="A"><span class="result-count">1/80</span> <span class="result-rate">(1.25%)</span></td><td data-input="L"><span class="result-count">15/80</span> <span class="result-rate">(18.75%)</span></td></tr>
+          <tr data-method="DWA"><th scope="row">DWA</th><td data-input="F"><span class="result-count">5/20</span> <span class="result-rate">(25%)</span></td><td data-input="A"><span class="result-count">6/20</span> <span class="result-rate">(30%)</span></td><td data-input="L"><span class="result-count">8/20</span> <span class="result-rate">(40%)</span></td></tr>
+          <tr data-method="RL-PPO"><th scope="row">RL-PPO</th><td data-input="F"><span class="result-count">4/190</span> <span class="result-rate">(2.11%)</span></td><td data-input="A"><span class="result-count">23/190</span> <span class="result-rate">(12.11%)</span></td><td data-input="L"><span class="result-count">42/190</span> <span class="result-rate">(22.11%)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="reading-width result-notes">
+      <p>F is the historical reference. RL-PPO A/L include additional training. Identical A/L settings may share executions.</p>
+      <details class="evaluation-scope">
+        <summary>Evaluation scope</summary>
+        <p>These are descriptive, in-sample results on selected conditions. Evaluation sets differ by method, so comparisons should stay within each method. Identical effective A/L proposals share executions. Gains over historical F do not isolate a diagnostic-input effect for RL-PPO. Pooled rates do not establish improvement in every condition or statistical significance.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="using-find-lab" class="research-section page-width" aria-labelledby="using-find-lab-title">
     <div class="reading-width section-intro">
       <h2 id="using-find-lab-title" class="title section-title">Using FIND-Lab</h2>
-      <p>
-        An edited walkthrough of environment and task configuration, followed by
-        inspection of saved results. Explore termination locations and time-series
-        plots in <strong>Results</strong>, then prepare a question based on the recorded
-        evidence in <strong>LLM Assistance</strong>.
-      </p>
+      <p>Configure a scene, inspect saved diagnostic evidence, and prepare a bounded adjustment in a single workflow.</p>
+    </div>
+    <div class="tutorial-chapters" role="group" aria-label="Jump to a tutorial chapter">
+      <button class="chapter-button" type="button" data-chapter="configure" aria-controls="tutorial-video" disabled>
+        <span class="chapter-thumbnail media-frame" aria-hidden="true"></span>
+        <span class="chapter-copy"><span class="chapter-time">00:06</span><span class="chapter-label">Configure the scene</span></span>
+      </button>
+      <button class="chapter-button" type="button" data-chapter="inspect" aria-controls="tutorial-video" disabled>
+        <span class="chapter-thumbnail media-frame" aria-hidden="true"></span>
+        <span class="chapter-copy"><span class="chapter-time">00:56</span><span class="chapter-label">Inspect a saved run</span></span>
+      </button>
+      <button class="chapter-button" type="button" data-chapter="clearance" aria-controls="tutorial-video" disabled>
+        <span class="chapter-thumbnail media-frame" aria-hidden="true"></span>
+        <span class="chapter-copy"><span class="chapter-time">01:22</span><span class="chapter-label">Examine clearance</span></span>
+      </button>
+      <button class="chapter-button" type="button" data-chapter="propose" aria-controls="tutorial-video" disabled>
+        <span class="chapter-thumbnail media-frame" aria-hidden="true"></span>
+        <span class="chapter-copy"><span class="chapter-time">01:52</span><span class="chapter-label">Prepare an adjustment</span></span>
+      </button>
     </div>
     <div class="media-frame" data-media="tutorialVideo" role="img" aria-label="Tool tutorial video unavailable"></div>
+    <p class="media-caption reading-width">An edited walkthrough of saved evidence. Scene setup and the loaded result are separate examples; no new evaluation, model call, or parameter application is run in this recording.</p>
   </section>
 </main>
 

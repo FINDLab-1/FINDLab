@@ -1,40 +1,48 @@
 # FIND-Lab
 
-Anonymous FIND-Lab project page for double-anonymous peer review. This is a static HTML/CSS page using the existing bundled Bulma stylesheet and plain JavaScript; it has no build step or package dependencies.
+Anonymous FIND-Lab project page for double-anonymous peer review. The site uses static HTML, the existing bundled Bulma stylesheet, custom CSS, and plain JavaScript. There is no build step or application dependency.
 
-Published at <https://findlab-1.github.io/FINDLab/>.
+## Page structure
 
-## Edit the page
+`index.html` contains the title and resources, clean recorded hero, full Abstract and three takeaways, Research Overview, Factor-Controlled Environments, Nearby Endpoints / Different Behaviors, a testable adjustment, Quantitative Re-evaluation, and Using FIND-Lab. The author line remains **Anonymous Authors for IEEE ICRA 2027 submission**.
 
-- Keep author names, affiliations, personal profiles, acknowledgments, and identifying logos withheld during review.
-- Edit the five page areas in `index.html`: title/resources, Abstract, recorded navigation overview/diagnosis flow/overview image, Research Overview, and Using FIND-Lab.
-- Review images and videos for identifying text, faces, logos, paths, and metadata before adding them to `static/`.
-- Enable a resource button only after checking its destination, account identity, repository history, and downloadable file metadata. Use `target="_blank" rel="noopener noreferrer"` for external links.
-- Adjust the page styles in `static/css/index.css`.
-- The search-engine indexing directive reduces discovery; it does not restrict access.
+**Video** links to `#research-overview`. **Paper** and **Code** remain disabled until anonymous release destinations are verified. There are no external video players, fonts, analytics, or model calls. The existing template attribution is retained.
 
-## Header resources and media paths
+Edit layout in `static/css/index.css` and behavior in `static/js/index.js`. Desktop media use up to 1120 px and prose up to 760 px. Mobile shows individual environment images, a text workflow, HTML proposal comparisons, and the results table instead of shrinking long diagrams.
 
-The author line reads **Anonymous Authors for IEEE ICRA 2027 submission**. The header shows **Paper**, **Code**, and **Video** as disabled light-gray pill buttons in the original compact style, followed by **Comming Soon!** above Abstract. Their destinations are intentionally unset in `index.html`. Embedded media does not enable these header resources.
+## Media and data
 
-The manuscript's Abstract appears between the header and the looping video, with paragraph breaks for readability and its self-referential project-page URL omitted. The previous introduction below the video is removed to avoid repeating the abstract; the diagnosis flow and overview image slot follow the video.
+All replaceable paths are in **`static/js/media-config.js`**. Use project-relative URLs under `./static/`; unsupported, external, empty, or null paths are ignored. JSON image paths resolve against `assetRoot`, not the JSON file's `data/` directory. Keep absent or unverified resources null.
 
-Set embedded media paths in **`static/js/media-config.js`** only. Use a project-relative path inside `./static/` after reviewing the actual asset, not just its filename. Keep unavailable or unverified assets `null`. No media is generated or extracted by the page.
+| Configuration key | Resource |
+| --- | --- |
+| `heroMedia`, `heroPoster` | Existing clean 15 s loop and supplied still poster |
+| `overviewImage` | Supplied workflow PNG, at its actual 1600 × 610 ratio |
+| `mainVideo`, `mainPoster` | Existing 179.5 s overview; no separate poster supplied |
+| `environmentGallery` | Five families, six sweeps, three archived initial views each |
+| `diagnosisVideo`, `diagnosisPoster` | Additional 32 s MPPI diagnostic comparison |
+| `proposalImage` | ANYmal-C / DWA aggregate and diagnostic input comparison |
+| `pairedVideo`, `pairedPoster` | Recorded 24 s F/A/L example |
+| `resultsImage`, `resultsData` | Supplied pooled chart and exact Table V counts |
+| `tutorialVideo`, `tutorialPoster` | Existing 130 s anonymized GUI walkthrough |
+| `tutorialChapters`, `tutorialTrack` | Chapter JSON and VTT: 6, 56, 82, 112 seconds |
 
-| Key | Intended resource | Current value |
-| --- | --- | --- |
-| `heroMedia` | Recorded navigation across 15 passage configurations, 15-second MP4 loop without labels | `./static/media/hero-clean.mp4` |
-| `overviewImage` | Existing overview image matching the current Fig. 1 | `null` |
-| `mainVideo` | User-selected research overview, 2:59.5 | `./static/media/research-overview.mp4` |
-| `tutorialVideo` | Edited GUI walkthrough with saved diagnostic records, 2:10 | `./static/media/tool-walkthrough.mp4` |
+New public assets reside under `static/media/findlab/{images,video,data}` and were copied unchanged. The existing hero, research overview, and tutorial paths are preserved; duplicate video copies and private production material are excluded. Unused triptych WebPs remain available because the gallery JSON references them; the page uses the individual setting images.
 
-The configuration comments describe the intended content and the manuscript's interpretation limits. The environment factors follow Table II; Fig. 7 contains individual re-evaluation episodes, distinct from the diagnostic input episode, and Table V reports descriptive pooled results only for its selected conditions.
+Environment descriptions and labels in HTML are a snapshot of `environment-gallery.json`, with images selected through that JSON. The accessible results table is a source-checked snapshot of `pooled-results.json` / `.csv`; JavaScript refreshes the cells from the JSON after validating counts and percentages. If those datasets change, update their corresponding HTML snapshots. The supplied numerical data and original videos must stay unchanged during presentation edits.
 
-The research overview is an unchanged copy of the supplied `FINDLab_graphs_synced.mp4`. Its edited geometry transitions illustrate configurations; they should not be described as online adaptation or the paper's controlled factor sweeps. Videos support MP4/WebM; the hero also supports GIF/PNG/JPEG/WebP. The overview image supports GIF/PNG/JPEG/WebP. Text alternatives are maintained in `static/js/index.js`.
+## Interpretation and interaction
 
-The hero is an unchanged copy of the existing `findlab_parallel_clean.mp4`, replacing the annotated GIF at the user's request. It has no titles, labels, legends, or visible page caption. It zooms from a Nova Carter close-up to 15 static configurations across five environment families, with 9 Nova Carter and 6 ANYmal-C robots. Separately recorded episodes are replayed together at their original timestamps, and terminal poses are held. This recorded-state visualization is not a new live parallel evaluation, an online-adaptation experiment, or an all-success demonstration; its accessible label retains the recorded-run description. The tutorial is an unchanged copy of `findlab_tool_walkthrough.mp4`. It uses edited GUI captures and saved results; it does not show a new evaluation, provider request, or parameter application being run. No new media was generated for the page.
+- The hero visualizes separately recorded episodes in static Isaac Sim scenes. It is a presentation replay, not a new live parallel evaluation. It has a supplied poster, a visible Play/Pause button, and click-to-toggle playback. Reduced motion shows a static poster until explicit Play.
+- Straight varies width; Single Bend and S-Bend vary bend angle at fixed 1.2 m width; Recovery varies initial heading; U-Shape varies angular spacing or curved radius. The gallery shows selected initial configurations, not outcomes or live geometry changes.
+- The MPPI diagnostic comparison is an additional archived curved-U case, not the exact manuscript Fig. 5 pair. Body clearance excludes articulated legs and does not determine the runtime contact outcome.
+- The ANYmal-C / DWA proposals are hypotheses. Their planning obstacle envelope is distinct from physical robot dimensions and diagnostic body clearance. The F episode in the recorded comparison is distinct from the LLM input episode.
+- Pooled results are descriptive, in-sample results on 29 selected Nova Carter conditions. Compare A/L within each method. F is historical; PPO A/L include training; identical proposals may share executions.
+- The tool's configuration demonstration and saved result are separate examples. Chapter buttons seek after metadata is ready and support native Enter/Space activation. No evaluation, model request, or parameter application is executed by the page or walkthrough.
 
-The hero and both video areas reserve a 16:9 ratio; the overview image reserves 2:1. Empty areas contain no player or broken image. Missing or invalid assets leave the area blank. The MP4 hero uses muted inline looping playback; clicking or tapping it toggles playback. Its keyboard-accessible pause button is visually hidden during playback until focused, and appears when paused. Reduced-motion preferences suppress autoplay. All assets are served from the same site, with no external video embeds, fonts, or analytics. Versioned stylesheet and script URLs in `index.html` prevent older cached loaders from selecting the annotated media.
+Environment tabs use roving keyboard focus, arrow/Home/End selection, and native Enter/Space activation. Hidden panels pause any contained videos. Only the hero autoplays. Off-screen media load near the viewport; video players appear at `loadedmetadata` rather than depending on `loadeddata`. Missing files retain a quiet media frame with no broken image or empty video controls. Image and video dimensions determine their rendered aspect ratios.
+
+Keep author names, affiliations, personal profiles, private paths, and identifying metadata out of public assets. Inspect content as well as metadata before adding a new asset. The `noindex` directive reduces discovery; it does not restrict access.
 
 ## Configure Git before editing
 
