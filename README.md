@@ -6,7 +6,7 @@ Anonymous FIND-Lab project page for double-anonymous peer review. The site uses 
 
 `index.html` contains the title and resources, clean recorded hero, full Abstract and three takeaways, Research Overview, Factor-Controlled Environments, Outcomes and Termination Locations, Nearby Termination Locations / Different Behaviors, a testable adjustment, Quantitative Re-evaluation, and Using FIND-Lab. The author line remains **Anonymous Authors for IEEE ICRA 2027 submission**.
 
-The main reading path is **1 Configure → 2 Measure → 3 Inspect → 4 Propose & test**, with matching navigation anchors and section markers. The short Measure section distinguishes runtime outcomes from last-valid-pose termination locations. Quantitative re-evaluation continues the fourth stage.
+The main reading path is **1 Configure → 2 Measure → 3 Inspect → 4 Propose & test**, with matching section markers and links in the mobile workflow. The short Measure section distinguishes runtime outcomes from last-valid-pose termination locations. Quantitative re-evaluation continues the fourth stage.
 
 **Video** links to `#research-overview`. **Paper** and **Code** remain disabled until anonymous release destinations are verified. There are no external video players, fonts, analytics, or model calls. The existing template attribution is retained.
 
